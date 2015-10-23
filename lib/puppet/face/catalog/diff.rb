@@ -94,10 +94,8 @@ Puppet::Face.define(:catalog, '0.0.1') do
     when_invoked do |catalog1, catalog2, options|
       require File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "catalog-diff", "differ.rb"))
       require File.expand_path(File.join(File.dirname(__FILE__), "..", "..", "catalog-diff", "findcatalogs.rb"))
-      Puppet.err("Add --debug for realtime output, add --render-as {json,yaml} for parsed output")
 
-      #raise "You must pass unique paths to the arguments (#{catalog1} = #{catalog2})" if catalog1 == catalog2
-
+      # raise "You must pass unique paths to the arguments (#{catalog1} = #{catalog2})" if catalog1 == catalog2
 
       # Sanity check for mismatched arguments
       if File.directory?(catalog1) && File.file?(catalog2) || File.file?(catalog1) && File.directory?(catalog2)
